@@ -13,13 +13,14 @@ DROP TABLE IF EXISTS t_theme;
 CREATE TABLE t_material
 (
 	-- テーマID
-	theme_id bigint NOT NULL UNIQUE,
+	theme_id bigint NOT NULL,
 	-- ネタID
-	material_id bigint NOT NULL UNIQUE,
+	material_id bigint NOT NULL,
 	-- 名前
 	title varchar,
 	-- 内容
-	content varchar
+	content varchar,
+	UNIQUE (theme_id, material_id)
 ) WITHOUT OIDS;
 
 

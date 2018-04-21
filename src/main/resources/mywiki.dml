@@ -1,0 +1,11 @@
+INSERT INTO t_theme
+(title, content) VALUES
+('英語', '英語で学んだことを保存する。'),
+('ディアボロの大冒険', 'ディアボロの大冒険のプレイメモを保存する。');
+
+INSERT INTO t_material
+(theme_id, material_id, title, content) VALUES
+(1, 1, 'oh boy', '困ったな。'),
+(1, 2, 'neighborhood', '近所。'),
+(2, 1, 'ボール&プレイカーのこと', 'ボール&ブレイカーは空き容量を増やせない。'),
+(2, 2, '石仮面のこと', 'ディアボロの試練をクリアするだけでは石仮面(改)にはならない。');
