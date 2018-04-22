@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.jd1015.erythrinavariegataapi.repository.ThemeRepository">
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO t_theme (title, content) VALUES (#{title}, #{content})
+    </insert>
+    <select id="selectById" resultType="com.github.jd1015.erythrinavariegataapi.model.entity.ThemeEntity">
+        SELECT theme_id, title, content FROM t_theme WHERE theme_id = #{thmeId}
+    </select>
+    <select id="selectAll" resultType="com.github.jd1015.erythrinavariegataapi.model.entity.ThemeEntity">
+        SELECT theme_id, title, content FROM t_theme
+    </select>
+    <delete id="deleteById">
+        DELETE FROM t_theme WHERE theme_id = #{themeId}
+    </delete>
+    <insert id="copyById" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO MEIGEN (title, content)
+        SELECT title, content FROM t_theme WHERE theme_id = #{themeId}
+    </insert>
+</mapper>
