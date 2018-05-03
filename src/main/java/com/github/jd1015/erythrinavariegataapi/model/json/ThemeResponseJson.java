@@ -3,8 +3,6 @@
  */
 package com.github.jd1015.erythrinavariegataapi.model.json;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.jd1015.erythrinavariegataapi.common.Util;
 
 /**
@@ -37,6 +35,24 @@ public class ThemeResponseJson {
   @Override
   public String toString() {
     return Util.getJson(this);
+  }
+  /**
+   * @return themeId
+   */
+  public Long getThemeId() {
+    return themeId;
+  }
+  /**
+   * @return title
+   */
+  public String getTitle() {
+    return title;
+  }
+  /**
+   * @return content
+   */
+  public String getContent() {
+    return content;
   }
 
 }
