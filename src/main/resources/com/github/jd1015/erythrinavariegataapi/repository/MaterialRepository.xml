@@ -20,7 +20,7 @@
         , title
         , content
       FROM t_material
-      WHERE theme_id = #{thmeId}
+      WHERE theme_id = #{themeId}
       AND material_id = #{materialId}
     </select>
     <select id="selectByThemeId" resultType="com.github.jd1015.erythrinavariegataapi.model.entity.MaterialEntity">
@@ -29,7 +29,7 @@
         , title
         , content
       FROM t_material
-      WHERE theme_id = #{thmeId}
+      WHERE theme_id = #{themeId}
     </select>
     <delete id="deleteByThemeIdAndMaterialId">
       DELETE FROM t_material

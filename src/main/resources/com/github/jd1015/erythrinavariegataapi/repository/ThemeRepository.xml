@@ -7,7 +7,7 @@
         INSERT INTO t_theme (title, content) VALUES (#{title}, #{content})
     </insert>
     <select id="selectById" resultType="com.github.jd1015.erythrinavariegataapi.model.entity.ThemeEntity">
-        SELECT theme_id, title, content FROM t_theme WHERE theme_id = #{thmeId}
+        SELECT theme_id, title, content FROM t_theme WHERE theme_id = #{themeId}
     </select>
     <select id="selectAll" resultType="com.github.jd1015.erythrinavariegataapi.model.entity.ThemeEntity">
         SELECT theme_id, title, content FROM t_theme

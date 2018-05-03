@@ -22,7 +22,7 @@ public interface MaterialRepository {
 
   List<MaterialEntity> selectByThemeId(Long themeId);
 
-  Boolean deleteByThemeIdAndMaterialId(Long thmeId);
+  Boolean deleteByThemeIdAndMaterialId(Long themeId);
 
   Boolean update(MaterialEntity materialEntity);
 }
