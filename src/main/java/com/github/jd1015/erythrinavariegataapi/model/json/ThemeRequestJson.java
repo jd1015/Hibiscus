@@ -10,15 +10,8 @@ import com.github.jd1015.erythrinavariegataapi.common.Util;
  *
  */
 public class ThemeRequestJson {
-  private Long themeId;
   private String title;
   private String content;
-  /**
-   * @return themeId
-   */
-  public Long getThemeId() {
-    return themeId;
-  }
   /**
    * @return title
    */
