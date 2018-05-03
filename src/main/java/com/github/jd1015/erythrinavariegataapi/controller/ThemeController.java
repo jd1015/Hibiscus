@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.github.jd1015.erythrinavariegataapmei.controller;
+package com.github.jd1015.erythrinavariegataapi.controller;
 
 import java.util.List;
 
