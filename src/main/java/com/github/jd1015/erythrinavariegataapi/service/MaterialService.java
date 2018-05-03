@@ -16,8 +16,9 @@ public interface MaterialService {
   /**
    * マテリアルを登録する
    * @param materialRequestJson マテリアルのリクエストオブジェクト
+   * @param themeId テーマのID
    * */
-  void registerMaterial(MaterialRequestJson materialRequestJson);
+  void registerMaterial(MaterialRequestJson materialRequestJson, Long themeId);
 
   /**
    * マテリアルを取得する
