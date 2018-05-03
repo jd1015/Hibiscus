@@ -39,6 +39,7 @@ public class ThemeController {
   public void postTheme(@RequestBody ThemeRequestJson themeRequestJson) {
     if (logger.isDebugEnabled()) {
       logger.debug("{}.{} 開始", Util.getClassName(), Util.getMethodName());
+      logger.debug(themeRequestJson.toString());
     }
     themeService.registerTheme(themeRequestJson);
     if (logger.isDebugEnabled()) {
