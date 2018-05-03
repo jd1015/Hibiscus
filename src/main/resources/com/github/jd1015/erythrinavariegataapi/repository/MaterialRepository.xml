@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.jd1015.erythrinavariegataapi.repository.MaterialRepository">
+  <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+    INSERT INTO t_material
+      (theme_id
+        , material_id
+        , title
+        , content)
+    VALUES (#{themeId}
+      , COALESCE ((SELECT MAX(material_id) FROM t_material WHERE theme_id = #{themeId}), 1)
+      , #{title}
+      , #{content})
+    </insert>
+    <select id="selectByThemeIdAndMaterialId" resultType="com.github.jd1015.erythrinavariegataapi.model.entity.MaterialEntity">
+      SELECT theme_id
+        , material_id
+        , title
+        , content
+      FROM t_material
+      WHERE theme_id = #{thmeId}
+      AND material_id = #{materialId}
+    </select>
+    <select id="selectByThemeId" resultType="com.github.jd1015.erythrinavariegataapi.model.entity.MaterialEntity">
+      SELECT theme_id
+        , material_id
+        , title
+        , content
+      FROM t_material
+      WHERE theme_id = #{thmeId}
+    </select>
+    <delete id="deleteByThemeIdAndMaterialId">
+      DELETE FROM t_material
+      WHERE theme_id = #{themeId}
+      AND material_id = #{materialId}
+    </delete>
+    <update id="update">
+      UPDATE t_material
+      SET title = #{title}
+        , content = #{content}
+      WHERE theme_id = #{themeId}
+      AND material_id = #{materialId}
+    </update>
+</mapper>
