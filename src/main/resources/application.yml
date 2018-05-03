@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/demodb
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+    initialization-mode: always
+    continue-on-error: true
+logging.level:
+  root: DEBUG
+  org:
+    springframework.web: DEBUG
+    hibernate: DEBUG
