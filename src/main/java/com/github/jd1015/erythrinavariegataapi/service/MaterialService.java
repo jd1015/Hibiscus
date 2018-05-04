@@ -15,38 +15,38 @@ import com.github.jd1015.erythrinavariegataapi.model.json.MaterialResponseJson;
 public interface MaterialService {
   /**
    * マテリアルを登録する
-   * @param materialRequestJson マテリアルのリクエストオブジェクト
-   * @param themeId テーマのID
+   * @param materialRequestJson マテリアルの登録内容
+   * @param themeId 登録するマテリアルが属するテーマのID
    * */
   void registerMaterial(MaterialRequestJson materialRequestJson, Long themeId);
 
   /**
    * マテリアルを取得する
-   * @param themeId テーマのID
-   * @param materialId マテリアルのID
+   * @param themeId 取得するマテリアルが属するテーマのID
+   * @param materialId 取得するマテリアルのID
    * @return マテリアルのレスポンス
    * */
   MaterialResponseJson getMaterial(Long themeId, Long materialId);
 
   /**
    * マテリアルのリストを取得する
-   * @param themeId テーマのID
+   * @param themeId 取得するテーマのID
    * @return マテリアルのレスポンス(リスト)
    * */
   List<MaterialResponseJson> getMaterialList(Long themeId);
 
   /**
    * マテリアルを削除する
-   * @param themeId テーマのID
-   * @param materialId マテリアルのID
+   * @param themeId 削除するマテリアルが属するテーマのID
+   * @param materialId 削除するマテリアルのID
    * */
   void deleteMaterial(Long themeId, Long materialId);
 
   /**
    * マテリアルを更新する
-   * @param materialRequestJson マテリアルのリクエスト
-   * @param themeId テーマのID
-   * @param materialId マテリアルのID
+   * @param materialRequestJson マテリアルの更新内容
+   * @param themeId 更新するマテリアルが属するテーマのID
+   * @param materialId 更新するマテリアルのID
    * */
   void updateMaterial(MaterialRequestJson materialRequestJson, Long themeId, Long materialId);
 }

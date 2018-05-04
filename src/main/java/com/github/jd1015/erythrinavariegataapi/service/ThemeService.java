@@ -15,13 +15,13 @@ import com.github.jd1015.erythrinavariegataapi.model.json.ThemeResponseJson;
 public interface ThemeService {
   /**
    * テーマを登録する
-   * @param themeRequestJson テーマのリクエストオブジェクト
+   * @param themeRequestJson テーマの登録内容
    * */
   void registerTheme(ThemeRequestJson themeRequestJson);
 
   /**
    * テーマを取得する
-   * @param themeId テーマのID
+   * @param themeId 取得するテーマのID
    * @return テーマのレスポンス
    * */
   ThemeResponseJson getTheme(Long themeId);
@@ -34,13 +34,13 @@ public interface ThemeService {
 
   /**
    * テーマを削除する
-   * @param themeId テーマのID
+   * @param themeId 削除するテーマのID
    * */
   void deleteTheme(Long themeId);
 
   /**
    * テーマを複製する
-   * @param themeId テーマのID
+   * @param themeId 複製するテーマのID
    * */
   void copyTheme(Long themeId);
 }

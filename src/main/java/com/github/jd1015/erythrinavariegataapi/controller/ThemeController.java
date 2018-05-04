@@ -34,6 +34,7 @@ public class ThemeController {
 
   /**
    * "/theme"でテーマを登録する
+   * @param themeRequestJson 登録するテーマの内容
    * */
   @RequestMapping(method=RequestMethod.POST)
   public void postTheme(@RequestBody ThemeRequestJson themeRequestJson) {
@@ -49,6 +50,8 @@ public class ThemeController {
 
   /**
    * "/theme/xx"で指定したIDのテーマを取得する
+   * @param id 取得するテーマのID
+   * @return テーマ
    * */
   @RequestMapping(value="/{id}",method=RequestMethod.GET)
   public ThemeResponseJson getTheme(@PathVariable Long id) {
@@ -64,6 +67,7 @@ public class ThemeController {
 
   /**
    * "/theme"でテーマのリストを取得する
+   * @return テーマのリスト
    * */
   @RequestMapping(method=RequestMethod.GET)
   public List<ThemeResponseJson> getThemes() {
@@ -79,6 +83,7 @@ public class ThemeController {
 
   /**
    * "/theme/xx"で指定したIDのテーマを削除する
+   * @param id 削除するテーマのID
    * */
   @RequestMapping(value="/{id}", method=RequestMethod.DELETE)
   public void deleteTheme(@PathVariable Long id) {
