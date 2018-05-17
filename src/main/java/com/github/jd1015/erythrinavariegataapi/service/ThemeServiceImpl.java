@@ -35,9 +35,7 @@ public class ThemeServiceImpl implements ThemeService {
   @Override
   public void registerTheme(ThemeRequestJson themeRequestJson) {
     logger.debug("{}.{} 開始", Util.getClassName(), Util.getMethodName());
-    ThemeEntity themeEntity = new ThemeEntity();
-    themeEntity.setTitle(themeRequestJson.getTitle());
-    themeEntity.setContent(themeRequestJson.getContent());
+    ThemeEntity themeEntity = convertToThemeEntity(themeRequestJson, null);
     themeRepository.insert(themeEntity);
     logger.debug("{}.{} 終了", Util.getClassName(), Util.getMethodName());
   }
@@ -98,5 +96,43 @@ public class ThemeServiceImpl implements ThemeService {
     // FIXME falseの時にエラーを発生させる。
     Boolean successFlag = themeRepository.copyById(themeId);
     logger.debug("{}.{} 終了", Util.getClassName(), Util.getMethodName());
+  }
+
+  /* (非 Javadoc)
+   * @see com.github.jd1015.erythrinavariegataapi.service.ThemeService#updateTheme(com.github.jd1015.erythrinavariegataapi.model.json.ThemeRequestJson, java.lang.Long)
+   */
+  @Override
+  public void updateTheme(ThemeRequestJson themeRequestJson, Long themeId) {
+    if (logger.isDebugEnabled()) {
+      logger.debug("{}.{} 開始", Util.getClassName(), Util.getMethodName());
+    }
+    ThemeEntity themeEntity = convertToThemeEntity(themeRequestJson, themeId);
+    // FIXME falseの時にエラーを発生させる。
+    Boolean successFlag = themeRepository.updateById(themeEntity);
+    if (logger.isDebugEnabled()) {
+      logger.debug("{}.{} 終了", Util.getClassName(), Util.getMethodName());
+    }
+  }
+
+  /**
+   * テーマのリクエストをエンティティにする
+   * @param materialRequestJson マテリアルのリクエスト
+   * @param themeId テーマのID
+   * @return テーマのエンティティ
+   * */
+  private ThemeEntity convertToThemeEntity(ThemeRequestJson themeRequestJson, Long themeId) {
+    if (logger.isDebugEnabled()) {
+      logger.debug("{}.{} 開始", Util.getClassName(), Util.getMethodName());
+    }
+
+    ThemeEntity themeEntity = new ThemeEntity();
+    themeEntity.setThemeId(themeId);
+    themeEntity.setTitle(themeRequestJson.getTitle());
+    themeEntity.setContent(themeRequestJson.getContent());
+
+    if (logger.isDebugEnabled()) {
+      logger.debug("{}.{} 終了", Util.getClassName(), Util.getMethodName());
+    }
+    return themeEntity;
   }
 }

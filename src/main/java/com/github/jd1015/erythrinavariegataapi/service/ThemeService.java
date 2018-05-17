@@ -43,4 +43,11 @@ public interface ThemeService {
    * @param themeId 複製するテーマのID
    * */
   void copyTheme(Long themeId);
+
+  /**
+   * テーマを更新する
+   * @param themeRequestJson テーマの更新内容
+   * @param themeId 更新するテーマのID
+   * */
+  void updateTheme(ThemeRequestJson themeRequestJson, Long themeId);
 }
