@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -91,6 +92,22 @@ public class ThemeController {
       logger.debug("{}.{} 開始", Util.getClassName(), Util.getMethodName());
     }
     themeService.deleteTheme(id);
+    if (logger.isDebugEnabled()) {
+      logger.debug("{}.{} 終了", Util.getClassName(), Util.getMethodName());
+    }
+  }
+  /**
+   * "/theme/xx"で指定したテーマのIDの内容を更新する
+   * @param themeRequestJson 更新するテーマの内容
+   * @param id 更新するテーマのID
+   * */
+  @PutMapping(value="/{id}")
+  public void putTheme(@RequestBody ThemeRequestJson themeRequestJson, @PathVariable Long id) {
+    if (logger.isDebugEnabled()) {
+      logger.debug("{}.{} 開始", Util.getClassName(), Util.getMethodName());
+      logger.debug(themeRequestJson.toString());
+    }
+    themeService.updateTheme(themeRequestJson, id);
     if (logger.isDebugEnabled()) {
       logger.debug("{}.{} 終了", Util.getClassName(), Util.getMethodName());
     }
