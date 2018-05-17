@@ -19,4 +19,12 @@
         INSERT INTO MEIGEN (title, content)
         SELECT title, content FROM t_theme WHERE theme_id = #{themeId}
     </insert>
+    <update id="updateById">
+      UPDATE t_theme SET  (title, content)
+        <set>
+          <if test="title != null">title = #{title},</if>
+          <if test="content != null">content = #{content},</if>
+        </set>
+      WHERE theme_id = #{themeId}
+    </update>
 </mapper>

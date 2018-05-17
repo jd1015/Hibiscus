@@ -21,5 +21,6 @@ public interface ThemeRepository {
   List<ThemeEntity> selectAll();
   Boolean deleteById(Long themeId);
   Boolean copyById(Long themeId);
+  Boolean updateById(ThemeEntity themeEntity);
 
 }
