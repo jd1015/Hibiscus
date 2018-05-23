@@ -20,7 +20,7 @@
         SELECT title, content FROM t_theme WHERE theme_id = #{themeId}
     </insert>
     <update id="updateById">
-      UPDATE t_theme SET  (title, content)
+      UPDATE t_theme
         <set>
           <if test="title != null">title = #{title},</if>
           <if test="content != null">content = #{content},</if>
