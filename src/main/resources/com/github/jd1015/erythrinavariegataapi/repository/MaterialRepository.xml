@@ -10,7 +10,7 @@
         , title
         , content)
     VALUES (#{themeId}
-      , COALESCE ((SELECT MAX(material_id) FROM t_material WHERE theme_id = #{themeId}), 1)
+      , COALESCE ((SELECT MAX(material_id) + 1 FROM t_material WHERE theme_id = #{themeId}), 1)
       , #{title}
       , #{content})
     </insert>
