@@ -15,6 +15,7 @@ import com.github.jd1015.erythrinavariegataapi.common.Util;
 import com.github.jd1015.erythrinavariegataapi.model.entity.ThemeEntity;
 import com.github.jd1015.erythrinavariegataapi.model.json.ThemeRequestJson;
 import com.github.jd1015.erythrinavariegataapi.model.json.ThemeResponseJson;
+import com.github.jd1015.erythrinavariegataapi.repository.MaterialRepository;
 import com.github.jd1015.erythrinavariegataapi.repository.ThemeRepository;
 
 /**
@@ -28,6 +29,9 @@ public class ThemeServiceImpl implements ThemeService {
 
   @Autowired
   ThemeRepository themeRepository;
+
+  @Autowired
+  MaterialRepository materialRepository;
 
   /* (非 Javadoc)
    * @see com.github.jd1015.erythrinavariegataapi.service.ThemeService#registerTheme(com.github.jd1015.erythrinavariegataapi.model.json.ThemeRequestJson)
@@ -52,6 +56,7 @@ public class ThemeServiceImpl implements ThemeService {
     themeResponseJson.setThemeId(themeEntity.getThemeId());
     themeResponseJson.setTitle(themeEntity.getTitle());
     themeResponseJson.setContent(themeEntity.getContent());
+    themeResponseJson.setMaterialCount(materialRepository.selectMaterialCountByThemeId(themeId));
     logger.debug("{}.{} 終了", Util.getClassName(), Util.getMethodName());
     return themeResponseJson;
   }
@@ -70,6 +75,7 @@ public class ThemeServiceImpl implements ThemeService {
       themeResponseJson.setThemeId(themeEntity.getThemeId());
       themeResponseJson.setTitle(themeEntity.getTitle());
       themeResponseJson.setContent(themeEntity.getContent());
+      themeResponseJson.setMaterialCount(materialRepository.selectMaterialCountByThemeId(themeEntity.getThemeId()));
       themeResponseList.add(themeResponseJson);
     });
     logger.debug("{}.{} 終了", Util.getClassName(), Util.getMethodName());

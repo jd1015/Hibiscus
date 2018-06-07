@@ -26,4 +26,6 @@ public interface MaterialRepository {
   Boolean deleteByThemeIdAndMaterialId(@Param("themeId") Long themeId, @Param("materialId") Long materialId);
 
   Boolean update(MaterialEntity materialEntity);
+
+  Long selectMaterialCountByThemeId(Long themeId);
 }

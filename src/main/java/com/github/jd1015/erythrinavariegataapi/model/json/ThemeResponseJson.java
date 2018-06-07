@@ -13,6 +13,8 @@ public class ThemeResponseJson {
   private Long themeId;
   private String title;
   private String content;
+  /** テーマに属するマテリアルの件数 */
+  private Long materialCount;
   /**
    * @param themeId セットする themeId
    */
@@ -30,6 +32,12 @@ public class ThemeResponseJson {
    */
   public void setContent(String content) {
     this.content = content;
+  }
+  /**
+   * @param materialCount セットする materialCount
+   */
+  public void setMaterialCount(Long materialCount) {
+    this.materialCount = materialCount;
   }
 
   @Override
@@ -53,6 +61,12 @@ public class ThemeResponseJson {
    */
   public String getContent() {
     return content;
+  }
+  /**
+   * @return materialCount
+   */
+  public Long getMaterialCount() {
+    return materialCount;
   }
 
 }
