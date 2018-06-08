@@ -14,7 +14,7 @@ public class ErythrinavariegataApiApplication implements WebMvcConfigurer {
 
   @Override
   public void addCorsMappings(CorsRegistry registry) {
-    registry.addMapping("/**").allowedOrigins("http://localhost:4200").allowedMethods("PUT", "GET", "DELETE","POST");
+    registry.addMapping("/**").allowedOrigins("*").allowedMethods("PUT", "GET", "DELETE","POST");
   }
 
 }
