@@ -26,7 +26,7 @@ CREATE TABLE t_login
 CREATE TABLE t_user
 (
 	-- ユーザーID
-	user_id bigint NOT NULL,
+	user_id bigserial NOT NULL,
 	user_code varchar UNIQUE,
 	hash_password varchar DEFAULT 'dummy' NOT NULL,
 	salt varchar DEFAULT 'dummy' NOT NULL,

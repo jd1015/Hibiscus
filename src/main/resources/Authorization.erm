@@ -41,11 +41,11 @@
 		<suspend_validator>false</suspend_validator>
 		<export_setting>
 			<export_ddl_setting>
-				<output_path></output_path>
-				<encoding></encoding>
-				<line_feed></line_feed>
+				<output_path>src\main\resources\Authorization.sql</output_path>
+				<encoding>UTF-8</encoding>
+				<line_feed>CR+LF</line_feed>
 				<is_open_after_saved>true</is_open_after_saved>
-				<environment_id>null</environment_id>
+				<environment_id>0</environment_id>
 				<category_id>null</category_id>
 				<ddl_target>
 					<create_comment>true</create_comment>
@@ -138,7 +138,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2018-07-17 21:23:03</creation_date>
-			<updated_date>2018-07-17 21:53:33</updated_date>
+			<updated_date>2018-07-17 23:06:08</updated_date>
 			<model_property>
 				<name>プロジェクト名</name>
 				<value></value>
@@ -362,7 +362,7 @@
 			<description>ユーザーID</description>
 			<logical_name>ユーザーID</logical_name>
 			<physical_name>user_id</physical_name>
-			<type>bigint</type>
+			<type>bigserial</type>
 		</word>
 	</dictionary>
 	<tablespace_set>
@@ -612,7 +612,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>8</word_id>
+					<word_id>9</word_id>
 					<id>6</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -683,7 +683,7 @@
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
 					<physical_name></physical_name>
-					<type>bigint</type>
+					<type>bigserial</type>
 					<constraint></constraint>
 					<default_value></default_value>
 					<auto_increment>false</auto_increment>
@@ -842,7 +842,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>9</word_id>
+					<word_id>8</word_id>
 					<id>12</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
