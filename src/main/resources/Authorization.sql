@@ -14,8 +14,8 @@ CREATE TABLE t_login
 	login_id bigserial NOT NULL,
 	-- ユーザーID
 	user_id bigint NOT NULL,
-	access_token varchar DEFAULT 'dummy' NOT NULL UNIQUE,
-	refresh_token varchar DEFAULT 'dummy' NOT NULL UNIQUE,
+	access_token varchar DEFAULT 'dummy' NOT NULL,
+	refresh_token varchar DEFAULT 'dummy' NOT NULL,
 	expired_at timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
 	created_at timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
 	updated_at timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
@@ -29,7 +29,7 @@ CREATE TABLE t_user
 	user_id bigserial NOT NULL,
 	user_code varchar UNIQUE,
 	hash_password varchar DEFAULT 'dummy' NOT NULL,
-	salt varchar DEFAULT 'dummy' NOT NULL,
+	salt varchar(32) DEFAULT 'dummy' NOT NULL,
 	created_at timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
 	updated_at timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
 	PRIMARY KEY (user_id)
