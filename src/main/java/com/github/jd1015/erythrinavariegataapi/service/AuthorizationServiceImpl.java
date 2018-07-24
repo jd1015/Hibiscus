@@ -11,6 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.github.jd1015.erythrinavariegataapi.common.Util;
+import com.github.jd1015.erythrinavariegataapi.common.exception.AuthorizationException;
 import com.github.jd1015.erythrinavariegataapi.model.entity.UserEntity;
 import com.github.jd1015.erythrinavariegataapi.model.json.LoginRequestJson;
 import com.github.jd1015.erythrinavariegataapi.model.json.TokenResponseJson;
@@ -32,7 +33,7 @@ public class AuthorizationServiceImpl implements AuthorizationService {
 
   @Bean
   PasswordEncoder passwordEncoder() {
-      return new BCryptPasswordEncoder();
+    return new BCryptPasswordEncoder();
   }
 
   /* (非 Javadoc)
@@ -48,11 +49,8 @@ public class AuthorizationServiceImpl implements AuthorizationService {
 
     Boolean isSuccess = bCryptPasswordEncoder.matches(loginRequestJson.getPassword(), userEntity.getHashPassword());
 
-    if (isSuccess) {
-      // TODO:ログイン成功時の処理
-
-    } else {
-      // TODO:ログイン失敗時の処理
+    if (!isSuccess) {
+      throw new AuthorizationException("パスワードが間違えています。");
     }
 
     if (logger.isDebugEnabled()) {
