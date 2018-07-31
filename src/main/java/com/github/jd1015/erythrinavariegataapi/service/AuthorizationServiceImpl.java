@@ -3,9 +3,13 @@
  */
 package com.github.jd1015.erythrinavariegataapi.service;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -22,6 +26,11 @@ import com.github.jd1015.erythrinavariegataapi.repository.AuthorizationRepositor
  *
  */
 public class AuthorizationServiceImpl implements AuthorizationService {
+
+  private static int TOKEN_LENGTH = 16;//16*2=32バイト
+
+  @Value("${erythrinavariegata.expiredminute}")
+  private long expiredMinute;
 
   private static final Logger logger = LoggerFactory.getLogger(AuthorizationServiceImpl.class);
 
@@ -53,10 +62,49 @@ public class AuthorizationServiceImpl implements AuthorizationService {
       throw new AuthorizationException("パスワードが間違えています。");
     }
 
+    // トークン情報を生成する
+    TokenResponseJson tokenResponseJson = new TokenResponseJson();
+    tokenResponseJson.setAccessToken(getCsrfToken());
+    tokenResponseJson.setRefreshToken(getCsrfToken());
+    tokenResponseJson.setExpiredDate(java.time.LocalDateTime.now().plusMinutes(expiredMinute).toString());
+
     if (logger.isDebugEnabled()) {
       logger.debug("{}.{} 終了", Util.getClassName(), Util.getMethodName());
     }
     return null;
+  }
+
+  /**
+   * 32バイトのCSRFトークンを作成
+   * @return CSRFトークン
+   */
+  private static String getCsrfToken() {
+    if (logger.isDebugEnabled()) {
+      logger.debug("{}.{} 開始", Util.getClassName(), Util.getMethodName());
+    }
+    byte token[] = new byte[TOKEN_LENGTH];
+    StringBuffer buf = new StringBuffer();
+    SecureRandom random = null;
+
+    try {
+      random = SecureRandom.getInstance("SHA1PRNG");
+      random.nextBytes(token);
+
+      for (int i = 0; i < token.length; i++) {
+        buf.append(String.format("%02x", token[i]));
+      }
+
+    } catch (NoSuchAlgorithmException ex) {
+      if (logger.isErrorEnabled()) {
+        logger.error(ex.getMessage(), ex);
+      }
+      throw new AuthorizationException("CSRFトークンが作成できませんでした。");
+    }
+
+    if (logger.isDebugEnabled()) {
+      logger.debug("{}.{} 終了", Util.getClassName(), Util.getMethodName());
+    }
+    return buf.toString();
   }
 
 }
