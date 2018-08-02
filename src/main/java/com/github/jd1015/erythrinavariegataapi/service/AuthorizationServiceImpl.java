@@ -68,10 +68,14 @@ public class AuthorizationServiceImpl implements AuthorizationService {
     tokenResponseJson.setRefreshToken(getCsrfToken());
     tokenResponseJson.setExpiredDate(java.time.LocalDateTime.now().plusMinutes(expiredMinute).toString());
 
+    // トークン情報を更新する
+    authorizationRepository.updateTokenByUserId(tokenResponseJson.getAccessToken(),
+      tokenResponseJson.getRefreshToken(), tokenResponseJson.getExpiredDate(), userEntity.getUserId());
+
     if (logger.isDebugEnabled()) {
       logger.debug("{}.{} 終了", Util.getClassName(), Util.getMethodName());
     }
-    return null;
+    return tokenResponseJson;
   }
 
   /**

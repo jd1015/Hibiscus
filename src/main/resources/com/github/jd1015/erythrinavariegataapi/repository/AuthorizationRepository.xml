@@ -10,4 +10,15 @@
     FROM t_user
     WHERE user_code = #{userCode}
   </select>
+
+  <!-- ログイン時に生成したトークンの情報を更新する -->
+  <update id="updateTokenByUserId">
+    UPDATE t_login
+    SET access_token = #{accessToken}
+      , content = #{refreshToken}
+      , expired_at = #{expiredAt}
+      , updated_at = CURRENT_TIMESTAMP
+    WHERE theme_id = #{userId}
+  </update>
+
 </mapper>
