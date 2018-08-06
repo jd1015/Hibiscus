@@ -3,6 +3,7 @@
  */
 package com.github.jd1015.erythrinavariegataapi.repository;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import com.github.jd1015.erythrinavariegataapi.model.entity.UserEntity;
@@ -11,6 +12,7 @@ import com.github.jd1015.erythrinavariegataapi.model.entity.UserEntity;
  * @author lepra
  *
  */
+@Mapper
 public interface AuthorizationRepository {
 
   UserEntity selectUserByUserCode(String userCode);

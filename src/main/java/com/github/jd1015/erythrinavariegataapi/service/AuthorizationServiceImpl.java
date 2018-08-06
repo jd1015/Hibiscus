@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import com.github.jd1015.erythrinavariegataapi.common.Util;
 import com.github.jd1015.erythrinavariegataapi.common.exception.AuthorizationException;
@@ -25,6 +26,7 @@ import com.github.jd1015.erythrinavariegataapi.repository.AuthorizationRepositor
  * @author lepra
  *
  */
+@Service
 public class AuthorizationServiceImpl implements AuthorizationService {
 
   private static int TOKEN_LENGTH = 16;//16*2=32バイト
