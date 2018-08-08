@@ -30,6 +30,7 @@
         , content
       FROM t_material
       WHERE theme_id = #{themeId}
+      ORDER BY material_id ASC
     </select>
     <delete id="deleteByThemeIdAndMaterialId">
       DELETE FROM t_material
