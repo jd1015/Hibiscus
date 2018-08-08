@@ -13,3 +13,7 @@ logging.level:
     hibernate: DEBUG
 # mybatisでスネークケースをキャメルケースにする
 mybatis.configuration.mapUnderscoreToCamelCase: true
+
+# 独自実装
+erythrinavariegata:
+  expiredminute: 60 # トークンの有効期限(分)
