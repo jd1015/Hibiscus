@@ -21,5 +21,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .authorizeRequests()
         .antMatchers("/**").permitAll() // TODO:認証処理を行うようにする
         .anyRequest().authenticated();
+    http.csrf().disable();
   }
 }
