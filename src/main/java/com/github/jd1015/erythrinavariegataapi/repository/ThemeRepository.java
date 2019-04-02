@@ -6,7 +6,6 @@ package com.github.jd1015.erythrinavariegataapi.repository;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
 
 import com.github.jd1015.erythrinavariegataapi.model.entity.ThemeEntity;
 
@@ -23,7 +22,5 @@ public interface ThemeRepository {
   Boolean deleteById(Long themeId);
   Boolean copyById(Long themeId);
   Boolean updateById(ThemeEntity themeEntity);
-  Boolean updateReverseDisplayFlgById(@Param("themeId") Long themeId, @Param("reverseDisplayFlg") Boolean reverseDisplayFlg);
-  Boolean updateContentDisplayFlgById(@Param("themeId") Long themeId, @Param("contentDisplayFlg") Boolean contentDisplayFlg);
 
 }

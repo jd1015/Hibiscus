@@ -27,18 +27,4 @@
         </set>
       WHERE theme_id = #{themeId}
     </update>
-    <update id="updateReverseDisplayFlgById">
-      UPDATE t_theme
-        <set>
-          <if test="reverseDisplayFlg != null">reverse_display_flg = #{reverseDisplayFlg},</if>
-        </set>
-      WHERE theme_id = #{themeId}
-    </update>
-    <update id="updateContentDisplayFlgById">
-      UPDATE t_theme
-        <set>
-          <if test="contentDisplayFlg != null">content_display_flg = #{contentDisplayFlg},</if>
-        </set>
-      WHERE theme_id = #{themeId}
-    </update>
 </mapper>
