@@ -24,6 +24,7 @@
         <set>
           <if test="title != null">title = #{title},</if>
           <if test="content != null">content = #{content},</if>
+          <if test="reverseDisplayFlg != null">reverse_display_flg = #{reverseDisplayFlg},</if>
         </set>
       WHERE theme_id = #{themeId}
     </update>
