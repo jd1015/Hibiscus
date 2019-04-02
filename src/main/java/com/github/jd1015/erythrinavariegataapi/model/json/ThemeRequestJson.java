@@ -13,6 +13,7 @@ public class ThemeRequestJson {
   private String title;
   private String content;
   private Boolean reverseDisplayFlg;
+  private Boolean contentDisplayFlg;
   /**
    * @return title
    */
@@ -30,6 +31,12 @@ public class ThemeRequestJson {
    */
   public Boolean getReverseDisplayFlg() {
     return reverseDisplayFlg;
+  }
+  /**
+   * @return contentDisplayFlg
+   */
+  public Boolean getContentDisplayFlg() {
+    return contentDisplayFlg;
   }
   @Override
   public String toString() {
