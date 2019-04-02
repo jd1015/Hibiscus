@@ -136,6 +136,7 @@ public class ThemeServiceImpl implements ThemeService {
     themeEntity.setTitle(themeRequestJson.getTitle());
     themeEntity.setContent(themeRequestJson.getContent());
     themeEntity.setReverseDisplayFlg(themeRequestJson.getReverseDisplayFlg());
+    themeEntity.setContentDisplayFlg(themeRequestJson.getContentDisplayFlg());
 
     if (logger.isDebugEnabled()) {
       logger.debug("{}.{} 終了", Util.getClassName(), Util.getMethodName());
