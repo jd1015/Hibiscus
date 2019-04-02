@@ -141,17 +141,4 @@ public class ThemeServiceImpl implements ThemeService {
     }
     return themeEntity;
   }
-
-  @Override
-  public void updateReverseDisplayFlg(Long themeId, Boolean reverseDisplayFlg) {
-    if (logger.isDebugEnabled()) {
-      logger.debug("{}.{} 開始", Util.getClassName(), Util.getMethodName());
-    }
-
-    themeRepository.updateReverseDisplayFlgById(themeId, reverseDisplayFlg);
-
-    if (logger.isDebugEnabled()) {
-      logger.debug("{}.{} 終了", Util.getClassName(), Util.getMethodName());
-    }
-  }
 }

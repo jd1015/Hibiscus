@@ -50,11 +50,4 @@ public interface ThemeService {
    * @param themeId 更新するテーマのID
    * */
   void updateTheme(ThemeRequestJson themeRequestJson, Long themeId);
-
-  /**
-   * 逆さ表示フラグを更新する
-   * @param themeId 更新するテーマのID
-   * @param reverseDisplayFlg 更新後の逆さ表示フラグ
-   * */
-  void updateReverseDisplayFlg(Long themeId, Boolean reverseDisplayFlg);
 }
