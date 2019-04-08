@@ -61,10 +61,6 @@ COMMENT ON COLUMN t_theme.theme_id IS 'テーマID';
 COMMENT ON COLUMN t_theme.title IS '名前';
 COMMENT ON COLUMN t_theme.content IS '内容';
 
-/* titleとcontentを逆に表示するかどうかのフラグ */
-ALTER TABLE t_theme ADD COLUMN reverse_display_flg boolean DEFAULT false;
-COMMENT ON COLUMN t_theme.reverse_display_flg IS 'trueの場合にtitleとcontentを逆に表示する';
-
 /* contentを表示するかどうかのフラグ */
 ALTER TABLE t_theme ADD COLUMN content_display_flg boolean DEFAULT true;
 COMMENT ON COLUMN t_theme.content_display_flg IS 'falseの場合contentを表示しない';
