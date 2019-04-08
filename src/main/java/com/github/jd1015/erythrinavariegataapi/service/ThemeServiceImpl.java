@@ -57,7 +57,6 @@ public class ThemeServiceImpl implements ThemeService {
     themeResponseJson.setTitle(themeEntity.getTitle());
     themeResponseJson.setContent(themeEntity.getContent());
     themeResponseJson.setContentDisplayFlg(themeEntity.getContentDisplayFlg());
-    themeResponseJson.setReverseDisplayFlg(themeEntity.getReverseDisplayFlg());
     themeResponseJson.setMaterialCount(materialRepository.selectMaterialCountByThemeId(themeId));
     logger.debug("{}.{} 終了", Util.getClassName(), Util.getMethodName());
     return themeResponseJson;
@@ -137,7 +136,6 @@ public class ThemeServiceImpl implements ThemeService {
     themeEntity.setThemeId(themeId);
     themeEntity.setTitle(themeRequestJson.getTitle());
     themeEntity.setContent(themeRequestJson.getContent());
-    themeEntity.setReverseDisplayFlg(themeRequestJson.getReverseDisplayFlg());
     themeEntity.setContentDisplayFlg(themeRequestJson.getContentDisplayFlg());
 
     if (logger.isDebugEnabled()) {

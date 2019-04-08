@@ -7,7 +7,7 @@
         INSERT INTO t_theme (title, content) VALUES (#{title}, #{content})
     </insert>
     <select id="selectById" resultType="com.github.jd1015.erythrinavariegataapi.model.entity.ThemeEntity">
-        SELECT theme_id, title, content, reverse_display_flg, content_display_flg FROM t_theme WHERE theme_id = #{themeId}
+        SELECT theme_id, title, content, content_display_flg FROM t_theme WHERE theme_id = #{themeId}
     </select>
     <select id="selectAll" resultType="com.github.jd1015.erythrinavariegataapi.model.entity.ThemeEntity">
         SELECT theme_id, title, content FROM t_theme
@@ -24,7 +24,6 @@
         <set>
           <if test="title != null">title = #{title},</if>
           <if test="content != null">content = #{content},</if>
-          <if test="reverseDisplayFlg != null">reverse_display_flg = #{reverseDisplayFlg},</if>
           <if test="contentDisplayFlg != null">content_display_flg = #{contentDisplayFlg},</if>
         </set>
       WHERE theme_id = #{themeId}

@@ -11,7 +11,6 @@ public class ThemeEntity {
   private Long themeId;
   private String title;
   private String content;
-  private Boolean reverseDisplayFlg;
   private Boolean contentDisplayFlg;
   /**
    * @return themeId
@@ -48,18 +47,6 @@ public class ThemeEntity {
    */
   public void setContent(String content) {
     this.content = content;
-  }
-  /**
-   * @return reverseDisplayFlg
-   */
-  public Boolean getReverseDisplayFlg() {
-    return reverseDisplayFlg;
-  }
-  /**
-   * @param reverseDisplayFlg セットする reverseDisplayFlg
-   */
-  public void setReverseDisplayFlg(Boolean reverseDisplayFlg) {
-    this.reverseDisplayFlg = reverseDisplayFlg;
   }
   /**
    * @return contentDisplayFlg

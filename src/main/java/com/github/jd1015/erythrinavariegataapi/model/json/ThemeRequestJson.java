@@ -12,7 +12,6 @@ import com.github.jd1015.erythrinavariegataapi.common.Util;
 public class ThemeRequestJson {
   private String title;
   private String content;
-  private Boolean reverseDisplayFlg;
   private Boolean contentDisplayFlg;
   /**
    * @return title
@@ -25,12 +24,6 @@ public class ThemeRequestJson {
    */
   public String getContent() {
     return content;
-  }
-  /**
-   * @return reverseDisplayFlg
-   */
-  public Boolean getReverseDisplayFlg() {
-    return reverseDisplayFlg;
   }
   /**
    * @return contentDisplayFlg
