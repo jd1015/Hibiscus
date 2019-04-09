@@ -49,4 +49,19 @@
       FROM t_material
       WHERE theme_id = #{themeId}
     </select>
+    <update id="updateList">
+      UPDATE t_material
+      SET
+        title =
+        CASE
+        <foreach item="material" collection="materialEntityList">
+          WHEN theme_id = #{material.themeId} AND material_id = #{material.materialId} THEN #{material.title}
+        </foreach>
+        END
+        ,content =
+        CASE
+        <foreach item="material" collection="materialEntityList">
+          WHEN theme_id = #{material.themeId} AND material_id = #{material.materialId} THEN #{material.content}
+        </foreach>
+    </update>
 </mapper>

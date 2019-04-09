@@ -28,4 +28,7 @@ public interface MaterialRepository {
   Boolean update(MaterialEntity materialEntity);
 
   Long selectMaterialCountByThemeId(Long themeId);
+
+  Boolean updateList(List<MaterialEntity> materialEntityList);
+
 }
