@@ -5,6 +5,7 @@ package com.github.jd1015.erythrinavariegataapi.service;
 
 import java.util.List;
 
+import com.github.jd1015.erythrinavariegataapi.model.json.MaterialListRequestJson;
 import com.github.jd1015.erythrinavariegataapi.model.json.MaterialRequestJson;
 import com.github.jd1015.erythrinavariegataapi.model.json.MaterialResponseJson;
 
@@ -49,4 +50,11 @@ public interface MaterialService {
    * @param materialId 更新するマテリアルのID
    * */
   void updateMaterial(MaterialRequestJson materialRequestJson, Long themeId, Long materialId);
+
+  /**
+   * マテリアルlistを更新する
+   * @param materialListRequestJson マテリアルlistの更新内容
+   * @param themeId 更新するマテリアルが属するテーマのID
+   * */
+  void updateMaterialList(MaterialListRequestJson materialListRequestJson, Long themeId);
 }
