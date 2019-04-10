@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.github.jd1015.erythrinavariegataapi.common.Util;
+import com.github.jd1015.erythrinavariegataapi.model.json.MaterialListRequestJson;
 import com.github.jd1015.erythrinavariegataapi.model.json.MaterialRequestJson;
 import com.github.jd1015.erythrinavariegataapi.model.json.MaterialResponseJson;
 import com.github.jd1015.erythrinavariegataapi.service.MaterialService;
@@ -124,6 +125,26 @@ public class MaterialController {
     }
 
     materialService.updateMaterial(materialRequestJson, themeId, materialId);
+
+    if (logger.isDebugEnabled()) {
+      logger.debug("{}.{} 終了", Util.getClassName(), Util.getMethodName());
+    }
+  }
+
+  /**
+   * "/theme/{themeId}/list"で複数のマテリアルを更新する
+   * @param themeId 更新するマテリアルが属するテーマのID
+   * @param materialListRequestJson 更新するマテリアルのリスト
+   * */
+  @RequestMapping(value = "/{themeId}/material/list", method = RequestMethod.PUT)
+  public void putMaterialList(@PathVariable Long themeId,
+      @RequestBody MaterialListRequestJson materialListRequestJson) {
+    if (logger.isDebugEnabled()) {
+      logger.debug("{}.{} 開始", Util.getClassName(), Util.getMethodName());
+      logger.debug(materialListRequestJson.toString());
+    }
+
+    materialService.updateMaterialList(materialListRequestJson, themeId);
 
     if (logger.isDebugEnabled()) {
       logger.debug("{}.{} 終了", Util.getClassName(), Util.getMethodName());
