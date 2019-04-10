@@ -63,5 +63,6 @@
         <foreach item="material" collection="materialEntityList">
           WHEN theme_id = #{material.themeId} AND material_id = #{material.materialId} THEN #{material.content}
         </foreach>
+        END
     </update>
 </mapper>
