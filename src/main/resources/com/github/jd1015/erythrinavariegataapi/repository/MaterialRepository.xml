@@ -55,14 +55,19 @@
         title =
         CASE
         <foreach item="material" collection="materialEntityList">
-          WHEN theme_id = #{material.themeId} AND material_id = #{material.materialId} THEN #{material.title}
+          WHEN theme_id = #{themeId} AND material_id = #{material.materialId} THEN #{material.title}
         </foreach>
         END
         ,content =
         CASE
         <foreach item="material" collection="materialEntityList">
-          WHEN theme_id = #{material.themeId} AND material_id = #{material.materialId} THEN #{material.content}
+          WHEN theme_id = #{themeId} AND material_id = #{material.materialId} THEN #{material.content}
         </foreach>
         END
+      WHERE theme_id = #{themeId}
+      AND material_id IN
+      <foreach item="material" collection="materialEntityList" separator="," open="(" close=")">
+        #{material.materialId}
+      </foreach>
     </update>
 </mapper>

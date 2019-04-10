@@ -29,6 +29,6 @@ public interface MaterialRepository {
 
   Long selectMaterialCountByThemeId(Long themeId);
 
-  Boolean updateList(List<MaterialEntity> materialEntityList);
+  Boolean updateList(@Param("materialEntityList") List<MaterialEntity> materialEntityList, @Param("themeId") Long themeId);
 
 }

@@ -184,13 +184,12 @@ public class MaterialServiceImpl implements MaterialService {
     List<MaterialEntity> materialEntityList = new ArrayList<>();
     materialListRequestJson.getMaterialList().stream().forEach(material->{
       MaterialEntity materialEntity = new MaterialEntity();
-      materialEntity.setThemeId(themeId);
       materialEntity.setMaterialId(material.getMaterialId());
       materialEntity.setTitle(material.getTitle());
       materialEntity.setContent(material.getContent());
       materialEntityList.add(materialEntity);
     });
-    materialRepository.updateList(materialEntityList);
+    materialRepository.updateList(materialEntityList, themeId);
 
     if (logger.isDebugEnabled()) {
       logger.debug("{}.{} 終了", Util.getClassName(), Util.getMethodName());
