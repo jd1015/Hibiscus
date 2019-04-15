@@ -76,6 +76,7 @@ public class ThemeServiceImpl implements ThemeService {
       themeResponseJson.setThemeId(themeEntity.getThemeId());
       themeResponseJson.setTitle(themeEntity.getTitle());
       themeResponseJson.setContent(themeEntity.getContent());
+      themeResponseJson.setContentDisplayFlg(themeEntity.getContentDisplayFlg());
       themeResponseJson.setMaterialCount(materialRepository.selectMaterialCountByThemeId(themeEntity.getThemeId()));
       themeResponseList.add(themeResponseJson);
     });

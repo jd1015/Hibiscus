@@ -10,7 +10,7 @@
         SELECT theme_id, title, content, content_display_flg FROM t_theme WHERE theme_id = #{themeId}
     </select>
     <select id="selectAll" resultType="com.github.jd1015.erythrinavariegataapi.model.entity.ThemeEntity">
-        SELECT theme_id, title, content FROM t_theme
+        SELECT theme_id, title, content, content_display_flg FROM t_theme
     </select>
     <delete id="deleteById">
         DELETE FROM t_theme WHERE theme_id = #{themeId}
